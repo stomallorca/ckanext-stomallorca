@@ -1,0 +1,1 @@
+# ckanext-stomallorca_theme
