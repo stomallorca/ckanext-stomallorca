@@ -1,0 +1,150 @@
+      <!-- Footer -->
+      <footer class="text-center text-lg-start text-muted site-footer">
+         <!-- Section: Links  -->
+         <section class="footer-muted">
+            <div class="container text-center text-md-start">
+               <!-- Grid row -->
+               <div class="row mt-3">
+                  <!-- Grid column -->
+                  <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
+                     <!-- Content -->
+                     <h6 class="text-white mb-4">
+                      {{ _("Site map") }}
+                     </h6>
+                     <p class="mb-0 border-white border-bottom ">
+                        <a href="{{ h.stomallorca_portal_url() }}sto-mallorca/" class="text-white">{{ _("STO Mallorca") }}</a>
+                     </p>
+                     <p class="mb-0 border-white border-bottom">
+                        <a href="{{ h.stomallorca_portal_url() }}indicadores/" class="text-white">{{ _("Indicators") }}</a>
+                     </p>
+                     <p class="mb-0">
+                        <a href="{{ h.stomallorca_portal_url() }}actualidad/" class="text-white">{{ _("News") }}</a>
+                     </p>
+                  </div>
+                  <!-- Grid column -->
+                  <!-- Grid column -->
+                  <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
+                     <!-- Links -->
+                     <h6 class="text-white  mb-4">
+                        {{ _("Information") }}
+                     </h6>
+                     <p class="mb-0 border-white border-bottom" >
+                        <a href="{{ h.stomallorca_portal_url() }}indicativas-sostenibles/" class="text-white">{{ _("Sustainable initiatives") }}</a>
+                     </p>
+                     <p class="mb-0 border-white border-bottom">
+                        <a href="{{ h.stomallorca_portal_url() }}indicadores/#tve-jump-180d1d96651" class="text-white">{{ _("INSTO Network") }}</a>
+                     </p>
+                     <p class="mb-0 border-white border-bottom">
+                        <a href="https://www.conselldemallorca.cat/{{ 'es/' if h.lang() == 'es' else 'ca/' }}" class="text-white">{{ _("Consell de Mallorca") }}</a>
+                     </p>
+                     <p class="mb-0">
+                        <a href="{{ h.stomallorca_portal_url() }}contacto/" class="text-white">{{ _("Need help?") }}</a>
+                     </p>
+                  </div>
+                  <!-- Grid column -->
+                  <!-- Grid column -->
+                  <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-md-0 mb-4">
+                     <!-- Links -->
+                     <h6 class="text-white mb-4">
+                   {{ _("About the Observatory") }}
+                     <h6>
+                     <p class="mb-2" >
+                        <a class="text-white">{{ _("Mallorca Tourism Foundation") }}</a>
+                     </p>
+                     <p class="mb-0">Edifici de la Misericòrdia </p>
+                     <p class="mb-0">Plaça de l’Hospital, 4</p>
+                     <p class="mb-0">07012 Palma, Illes Balears</p>
+                     <p class="mb-0">Tel. +34 971 21 96 48</p>
+                     <a href="mailto:hello@stomallorca.com">
+                        <p class="mb-0">hello@stomallorca.com</p>
+                     </a>
+                  </div>
+                  <!-- Grid column -->
+               </div>
+               <!-- Grid row -->
+            </div>
+            <div class="container  mt-3 mb-3"  style="height: 1px; background-color: white;"> </div>
+            <!--segundo NAV-->
+            <div class="container row mx-auto">
+               <div class="col-sm-12 col-xl-9  d-flex justify-content-start">
+                 <nav class="navbar">
+                   <div class="container-fluid">
+                     <ul class="navbar-nav pl-0" style="margin-top: 0px !important;" id="menusecundario" >
+                       <li class="nav-item" >
+                         <a class="nav-link text-white" href="{{ h.stomallorca_portal_url() }}contacto/">{{ _("Contact") }}</a>
+                       </li>
+                       <li class="nav-item">
+                         <a class="nav-link text-white" href="{{ h.stomallorca_portal_url() }}privacidad/">{{ _("Privacity") }}</a>
+                       </li>
+                       <li class="nav-item">
+                         <a class="nav-link text-white" href="{{ h.stomallorca_portal_url() }}aviso-legal/">{{ _("Legal Notice") }}</a>
+                       </li>
+                     </ul>
+                   </div>
+                 </nav>
+               </div>
+               <div class=" col-sm-12 col-xl-3 pt-4">
+                {% block header_site_search %}
+                <form class="container section site-search simple-input" action="{% url_for 'dataset.search' %}" method="get">
+                   <div class="field">
+                   <label for="field-sitewide-search">{% block header_site_search_label %}{{ _('Search Datasets') }}{% endblock %}</label>
+                   <input id="field-sitewide-search" type="text" class="form-control" name="q" placeholder="{{ _('Search') }}" aria-label="{{ _('Search datasets') }}"/>
+                   <button class="btn-search" type="submit" aria-label="{{ _('Submit') }}"></button>
+                   </div>
+                </form>
+                {% endblock %}
+              </div>
+            </div>
+            <!--logos-->
+            <div class="container pt-5 pb-5">
+	       <div class="row justify-content-center align-items-center">
+                  <div class="col text-center">
+                     <div class="">
+                        <img class="w-75 pt-3 text-center" src="{{ h.url_for_static('/stomallorca/images/financiado-por-la-union-europea.png') }}" class="card-img-top" alt="{{ _('financed by the European Union') }}">
+                     </div>
+                  </div>
+		  <div class="col">
+		     <div class="">
+		        <img class="w-75" src="{{ h.url_for_static('/stomallorca/images/gobierno-de-la-ciudad.png') }}" class="card-img-top" alt="{{ _('Gobierno de la ciudad') }}">
+		     </div>
+		  </div>
+                  <div class="col">
+                     <div class="">
+                        <img class="w-75" src="{{ h.url_for_static('/stomallorca/images/plan-de-recuperacion.png') }}" class="card-img-top" alt="{{ _('Recovery plan') }}">
+                     </div>
+                  </div>
+                  <div class="col">
+                     <div class="">
+                        <img class="w-75" src="{{ h.url_for_static('/stomallorca/images/goib.png') }}" class="card-img-top" alt="{{ _('Govern de les Illes Balears') }}">
+                     </div>
+                  </div>
+		  <div class="col">
+		     <div class="">
+	                <img class="w-75" src="{{ h.url_for_static('/stomallorca/images/consell-de-mallorca.png') }}" class="card-img-top" alt="{{ _('Consell de Mallorca') }}">
+		     </div>
+	  	  </div>
+		  <div class="col">
+		     <div class="">
+		        <img class="w-75" src="{{ h.url_for_static('/stomallorca/images/fundacio.png') }}" class="card-img-top" alt="{{ _('Mallorca Turisme Foundation') }}">
+		     </div>
+		  </div>
+               </div>
+            </div>
+            <div class="container row mx-auto">
+               <!-- Left -->
+               <div class="col 6 pl-0 pt-2">
+                  <p class="text-white">© 2022 <strong>{{ _("STO Mallorca") }}</strong> | {{_("All rights reserved")}}</p>
+               </div>
+               <!-- Left -->
+               <!-- Right -->
+               <div class="col 6 d-flex justify-content-end" id="">
+                  <a style="padding-right:15px !important;" target="_blank" href="https://www.facebook.com/MallorcaTourism/"><img src="{{ h.url_for_static('/stomallorca/images/facebook.png') }}"></a>
+                  <a style="padding-right:15px !important;" target="_blank" href="https://twitter.com/MALLORCATOURISM"><img src="{{ h.url_for_static('/stomallorca/images/twitter.png') }}"></a>
+                  <a style="padding-right:15px !important;" target="_blank" href="https://www.youtube.com/c/MallorcaTourism/featured"><img src="{{ h.url_for_static('/stomallorca/images/youtube.png') }}"></a>
+                  <a target="_blank" href="https://www.linkedin.com/company/fundacio-mallorca-turisme/?original_referer="><img src="{{ h.url_for_static('/stomallorca/images/linkedin.png') }}"></a>
+               </div>
+               <!-- Right -->
+            </div>
+         </section>
+      </footer>
+ 

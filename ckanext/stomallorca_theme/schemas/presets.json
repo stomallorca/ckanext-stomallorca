@@ -1,0 +1,176 @@
+{
+  "scheming_presets_version": 1,
+  "about": "these are the default scheming field presets",
+  "about_url": "http://github.com/open-data/ckanext-scheming#preset",
+  "presets": [
+    {
+      "preset_name": "title",
+      "values": {
+        "validators": "if_empty_same_as(name) unicode",
+        "form_snippet": "large_text.html",
+        "form_attrs": {
+          "data-module": "slug-preview-target"
+        }
+      }
+    },
+    {
+      "preset_name": "temporals",
+      "values": {
+        "display_snippet": "temporals.html",
+        "validators": "harvest_list_of_dicts ogdch_validate_temporals",
+        "output_validators": "temporals_display"
+      }
+    },
+    {
+      "preset_name": "dicts",
+      "values": {
+        "validators": "harvest_list_of_dicts",
+        "output_validators": "multiple_text_output"
+      }
+    },
+    {
+      "preset_name": "multiple_text",
+      "values": {
+        "output_validators": "multiple_text_output"
+      }
+    },
+    {
+      "preset_name": "multilingual_output",
+      "values": {
+        "validators": "ignore",
+        "output_validators": "multilingual_text_output"
+      }
+    },
+    {
+      "preset_name": "multilingual_text",
+      "values": {
+        "form_snippet": "fluent_text.html",
+        "validators": "fluent_text",
+        "output_validators": "multilingual_text_output"
+      }
+    },
+    {
+      "preset_name": "multilingual_text_full",
+      "values": {
+        "form_snippet": "fluent_text_full.html",
+        "validators": "fluent_text",
+        "output_validators": "multilingual_text_output"
+      }
+    },
+    {
+      "preset_name": "multilingual_markdown",
+      "values": {
+        "form_snippet": "fluent_markdown.html",
+        "display_snippet": "fluent_markdown.html",
+        "validators": "fluent_text",
+        "output_validators": "multilingual_text_output"
+      }
+    },
+    {
+      "preset_name": "dataset_slug",
+      "values": {
+        "validators": "not_empty unicode name_validator package_name_validator",
+        "form_snippet": "slug.html"
+      }
+    },
+    {
+      "preset_name": "group_slug",
+      "values": {
+        "validators": "not_empty unicode name_validator group_name_validator",
+        "form_snippet": "organization_slug.html"
+      }
+    },
+    {
+      "preset_name": "tag_string_autocomplete",
+      "values": {
+        "validators": "ignore_missing tag_string_convert",
+        "form_attrs": {
+          "data-module": "autocomplete",
+          "data-module-tags": "",
+          "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?"
+        }
+      }
+    },
+    {
+      "preset_name": "dataset_organization",
+      "values": {
+        "validators": "scheming_required owner_org_validator unicode",
+        "form_snippet": "organization.html"
+      }
+    },
+    {
+      "preset_name": "url",
+      "values": {
+        "display_snippet": "url.html"
+      }
+    },
+    {
+      "preset_name": "ogdch_resource_format_autocomplete",
+      "values": {
+        "validators": "ignore_missing clean_format unicode",
+        "form_placeholder": "Kein Format",
+        "form_attrs": {
+          "data-module": "autocomplete",
+          "data-module-source": "/api/2/util/resource/format_autocomplete?incomplete=?"
+        }
+      }
+    },
+    {
+      "preset_name": "select",
+      "values": {
+        "form_snippet": "select.html",
+        "display_snippet": "select.html",
+        "validators": "scheming_required scheming_choices"
+      }
+    },
+    {
+      "preset_name": "languages",
+      "values": {
+        "form_snippet": "multiple_checkbox.html",
+        "display_snippet": "languages.html",
+        "validators": "ogdch_language",
+        "output_validators": "scheming_multiple_choice_output"
+      }
+    },
+    {
+      "preset_name": "multiple_select",
+      "values": {
+        "form_snippet": "multiple_select.html",
+        "display_snippet": "multiple_choice.html",
+        "validators": "scheming_multiple_choice",
+        "output_validators": "scheming_multiple_choice_output"
+      }
+    },
+    {
+      "preset_name": "ogdch_date",
+      "values": {
+        "display_snippet": "date.html",
+        "form_snippet": "date.html",
+        "validators": "scheming_required ogdch_date_validator",
+        "output_validators": "ogdch_date_output"
+      }
+    },
+    {
+      "preset_name": "file_size",
+      "values": {
+        "validators": "default(0) natural_number_validator",
+        "display_snippet": "file_size.html",
+        "form_snippet": "file_size.html"
+      }
+    },
+    {
+      "preset_name": "ogdch_fluent_tags",
+      "values": {
+        "form_snippet": "fluent_tags.html",
+        "display_snippet": "fluent_tags.html",
+        "error_snippet": "fluent_text.html",
+        "validators": "fluent_tags ogdch_fluent_tags",
+        "output_validators": "fluent_tags_output",
+        "form_attrs": {
+          "data-module": "autocomplete",
+          "data-module-tags": ""
+        }
+      }
+    }
+  ]
+}

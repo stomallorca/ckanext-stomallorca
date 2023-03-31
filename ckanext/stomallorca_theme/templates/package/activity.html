@@ -1,0 +1,10 @@
+{% ckan_extends %}
+
+{% block primary_content_inner %}
+  {% if h.check_access('package_update', { 'id':pkg.id }) %}
+    {{ super() }}
+  {% else %}
+    <h1>403</h1>
+    <p>Forbidden</p>
+  {% endif %}
+{% endblock %}

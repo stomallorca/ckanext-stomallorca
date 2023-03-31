@@ -1,0 +1,20 @@
+{% extends "base_home.html" %}
+
+{%- block page -%}
+
+
+  {%- block header %}
+    {% include "header_home.html" %}
+  {% endblock -%}
+
+
+
+
+{%- endblock -%}
+
+
+{%- block scripts %}
+  {% asset 'base/main' %}
+  {% asset 'base/ckan' %}
+
+{% endblock -%}

@@ -1,0 +1,6 @@
+{% ckan_extends %}
+
+{% block package_additional_info %}
+  {{ super() }}
+  <a class="btn btn-primary" href="{{ h.stomallorca_portal_url() }}contacto/"><i class="fa fa-envelope"></i> {{ _("Contact Us") }}</a>
+{% endblock %}

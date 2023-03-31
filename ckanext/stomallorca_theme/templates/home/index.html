@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+  {% block page %}
+
+  {% block redes_sociales %}
+          {% snippet 'snippets/redes_header.html' %}
+  {% endblock %}
+
+  {% block navegador %}
+          {% snippet 'home/snippets/navegador.html' %}
+  {% endblock %}
+
+  {% block nav_bar_2 %}
+          {% snippet 'home/snippets/nav_bar_2.html' %}
+  {% endblock %}
+
+  {% block search %}
+  	  {% snippet 'home/snippets/search.html' %}
+  {% endblock %}
+
+  {% block grupos %}
+	  {% snippet 'home/snippets/stom_groups.html' %}
+  {% endblock %}
+
+  {%- block footer %}
+	  {% snippet 'footer.html' %}
+  {% endblock -%}
+
+  {%- block scripts %}
+    {% asset 'base/main' %}
+    {% asset 'base/ckan' %}
+    {% if g.tracking_enabled %}
+      {% asset 'base/tracking' %}
+    {% endif %}
+    {{ super() }}
+  {% endblock -%}
+
+{% endblock %}

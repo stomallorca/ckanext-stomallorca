@@ -1,0 +1,17 @@
+<section class="additional-info">
+  <p><b>{{ _('Additional Info') }}</b></p>  
+  <div>
+    {% if pkg_dict.metadata_modified %}
+      <p scope="row" class="dataset-label mb-0">{{ _("Last Updated") }}</p>
+      <div class="dataset-details">
+        {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=pkg_dict.metadata_modified %}
+      </div>
+    {% endif %}
+    {% if pkg_dict.metadata_created %}
+      <p scope="row" class="dataset-label mb-0">{{ _("Created") }}</p>
+      <div class="dataset-details">
+          {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=pkg_dict.metadata_created %}
+      </div>
+    {% endif %}
+  </div>
+</section>

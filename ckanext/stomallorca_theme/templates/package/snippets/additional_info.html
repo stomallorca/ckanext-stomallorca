@@ -1,0 +1,42 @@
+{% ckan_extends %}
+
+{% block package_additional_info %}
+  {{ super() }}
+  <tr rel="dc:rights" resource="_:extra{{ i }}">
+    <th scope="row" class="dataset-label">{{ _("License") }}</th>
+    <th class="dataset-label" href="http://www.opendefinition.org/licenses/cc-by" rel="dc:rights">{{ pkg_dict.license_title }}
+      {% macro license_string(pkg_dict) %}
+        {% if 'license_url' in pkg_dict %}
+          <a href="{{ pkg_dict.license_url }}" rel="dc:rights">{{ pkg_dict.license_title }}</a>
+        {% else %}
+          {% if pkg_dict.license_id %}
+            <span property="dc:rights">{{ pkg_dict.license_title }}</span>
+          {% else %}
+            <span>{{ _('No License Provided') }}</span>
+          {% endif %}
+        {% endif %}
+      {% endmacro %}
+      {% if pkg_dict.isopen %}
+        <a href="http://opendefinition.org/okd/" title="{{ _('This dataset satisfies the Open Definition.') }}">
+          <img class="open-data" src="{{ h.url_for_static('/base/images/od_80x15_blue.png') }}" alt="[Open Data]" />
+        </a>
+      {% endif %}
+    </th>
+  </tr>
+  <tr>
+    <th>{{ _('Data update frequency') }} </th>
+    <th> </th>
+  </tr>
+  <tr>
+    <th>{{ _('Source') }} </th>
+    <th> </th>
+  </tr>
+  <tr>
+    <th>{{ _('Category') }} </th>
+    <th> </th>
+  </tr>
+  <tr>
+    <th>{{ _('Observations') }} </th>
+    <th> </th>
+  </tr>
+{% endblock %}  

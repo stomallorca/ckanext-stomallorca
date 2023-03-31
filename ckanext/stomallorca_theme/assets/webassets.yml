@@ -1,0 +1,14 @@
+# stomallorca_theme-js:
+#   filter: rjsmin
+#   output: ckanext-stomallorca_theme/%(version)s-stomallorca_theme.js
+#   contents:
+#     - js/stomallorca_theme.js
+#   extra:
+#     preload:
+#       - base/main
+
+ stomallorca_theme-css:
+   filter: cssrewrite
+   output: ckanext-stomallorca_theme/%(version)s-stomallorca_theme.css
+   contents:
+     - css/stomallorca_theme.css

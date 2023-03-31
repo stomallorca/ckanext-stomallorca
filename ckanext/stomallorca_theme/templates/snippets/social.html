@@ -1,0 +1,17 @@
+{% ckan_extends %}
+{% set current_url = h.full_current_url() %}
+{% block social %}
+  <section class="module module-narrow social">
+    {% block social_title %}
+        {{ super() }}
+    {% endblock %}
+    {% block social_nav %}
+      <ul class="nav nav-simple">
+        <li class="nav-item"><a href="https://www.facebook.com/MallorcaTourism/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li class="nav-item"><a href="https://twitter.com/MALLORCATOURISM" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+        <li class="nav-item"><a href="https://www.youtube.com/c/MallorcaTourism/featured" target="_blank"><i class="fab fa-youtube"></i> Youtube</a></li>
+        <li class="nav-item"><a href="https://www.linkedin.com/company/fundacio-mallorca-turisme/?original_referer=" target="_blank"><i class="fab fa-linkedin"></i> Linkedin </a></li>
+      </ul>
+    {% endblock %}
+  </section>
+{% endblock %}

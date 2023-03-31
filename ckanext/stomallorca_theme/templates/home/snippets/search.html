@@ -1,0 +1,21 @@
+{% set tags = h.get_facet_items_dict('tags', c.search_facets, limit=3) %}
+{% set placeholder = _('E.g. environment') %}
+<div class="container-flex p-0 backgroundGr" style="background-color: #5a8e22;">
+<div class="p-3">
+   <h2 class="text-center p-3 text-white tituloWeight">{{ _('Welcome to STO Mallorca Open Data') }}</h2>
+   <p class=" container text-center p-2 text-white">
+      {{ _('Now we have ') }} <b>{{ c.package_count }}</b> {{ _("datasets") }}, {{ _("to see them correctly, click on") }} <a class="text-white fw-bold p-0" href="{{ h.url_for('dataset.search') }}">{{ _("datasets") }}</a>
+   </p>
+</div>
+<div class="pb-5">
+{% block header_site_search %}
+<form class="container section site-search simple-input" action="{% url_for 'dataset.search' %}" method="get">
+   <div class="field">
+     <label for="field-sitewide-search">{% block header_site_search_label %}{{ _('Search Datasets') }}{% endblock %}</label>
+     <input id="field-sitewide-search" type="text" class="form-control" name="q" placeholder="{{ _('Search') }}" aria-label="{{ _('Search datasets') }}"/>
+     <button class="btn-search" type="submit" aria-label="{{ _('Submit') }}"></button>
+   </div>
+ </form>
+{% endblock %}
+</div>
+</div>

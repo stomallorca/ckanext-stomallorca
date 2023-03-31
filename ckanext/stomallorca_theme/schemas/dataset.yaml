@@ -1,0 +1,212 @@
+scheming_version: 2
+dataset_type: dataset
+about: A reimplementation of the default CKAN dataset schema
+about_url: http://github.com/ckan/ckanext-scheming
+
+
+dataset_fields:
+
+- field_name: title_translated
+  label: Title
+  preset: fluent_core_translated
+  classes:
+  - form-group
+  - col-md-12
+  mark_required: true
+  form_placeholder: eg. A descriptive title
+  form_snippet: extrafields_fluent_title.html
+
+
+- field_name: name
+  label: URL
+  preset: dataset_slug
+  form_placeholder: eg. my-dataset
+
+
+
+- field_name: notes_translated
+  label: Description
+  preset: fluent_core_translated
+  form_snippet: fluent_markdown.html
+  form_placeholder: eg. Some useful notes about the data
+  classes:
+  - form-group
+  - col-md-12
+
+
+
+- field_name: data_birth_date
+  label:
+    en: Date of publication
+    es: Fecha de publicación
+    ca: Data de publicació
+  help_inline: true
+  help_text: The date this resource was first created (outside of any system)
+  classes:
+  - form-group
+  - col-md-12
+  preset: date
+  validators: ignore_missing isodate convert_to_json_if_date
+  form_placeholder: dd-mm-yyyy
+
+
+
+- field_name: data_last_updated
+  label: 
+    en: Date of last data modification
+    es: Fecha de última modificación de datos
+    ca: Data de l'última modificació de dades
+  help_inline: true
+  help_text: The last time this data was updated to add or be replaced with more recent data.
+  classes:
+  - form-group
+  - col-md-12
+  preset: date
+  validators: ignore_missing isodate convert_to_json_if_date
+  form_placeholder: dd-mm-yyyy
+
+
+
+- field_name: update_frequency
+  label: 
+    en: Data update frequency
+    es: Frecuencia de actualización de datos
+    ca: Freqüència d'actualització de dades
+  help_inline: true
+  help_text: 
+    en: Let others know when they can expect new data.
+    ca: Indica la freqüència amb la que s'actualitzaran les dades.
+    es: Indica la frecuencia con la que se actualizarán los datos.
+  classes:
+  - form-group
+  - col-md-12
+  preset: select
+  validators: ignore_missing scheming_choices 
+  choices:
+  - value: as_required
+    label:
+      en: As required
+      ca: Quan sigui necessari
+      es: Cuando sea necesario
+  - value: semiannually
+    label:
+      en: Semiannually
+      ca: Semestralment
+      es: Semestralmente
+  - value: monthly
+    label:
+      en: Monthly
+      ca: Mensualment
+      es: Mensualmente 
+  - value: fortnightly
+    label:
+      en: Fortnightly
+      ca: Quinzenalmente
+      es: Quincenalment 
+  - value: anually
+    label:
+      en: Yearly
+      ca: Anual
+      es: Anual
+  - value: daily
+    label:
+      en: Daily
+      ca: Diària
+      es: Diaria
+  - value: quaterly
+    label:
+      en: Quaterly
+      ca: Trimestralment
+      es: Trimestralmente
+  - value: binanually
+    label:
+      en: Biannually
+      ca: Bianual
+      es: Bianual
+
+- field_name: tag_string
+  label: Tags
+  preset: tag_string_autocomplete
+  form_placeholder: eg. economy, mental health, government
+
+- field_name: license_id
+  label: License
+  form_snippet: license.html
+  help_text: License definitions and additional information can be found at http://opendefinition.org/
+
+- field_name: owner_org
+  label: Organization
+  preset: dataset_organization
+
+- field_name: source
+  label: 
+   en: Source/s
+   es: Fuente/s
+   ca: Font/s
+  form_placeholder: IBESTAT
+
+#- field_name: version
+#  label: Version
+#  validators: ignore_missing unicode_safe package_version_validator
+#  form_placeholder: '1.0'
+
+
+- field_name: author
+  label:
+    en: Owning/responsible agency
+    ca: Organisme propietari/responsable
+    es: Organismo propietario/responsable
+  form_placeholder: Joe Bloggs
+  display_property: dc:creator
+
+- field_name: additional_notes
+  label: 
+   en: Observations/notes additionals
+   es: Observaciones/notas adicionales
+   ca: Observacions/notes addicionals
+  preset: fluent_text
+  form_snippet: fluent_markdown.html
+  form_placeholder: eg. Some useful notes about the data
+  classes:
+  - form-group
+  - col-md-12
+
+#- field_name: author_email
+#  label: Author Email
+#  form_placeholder: joe@example.com
+#  display_property: dc:creator
+#  display_snippet: email.html
+#  display_email_name_field: author
+
+#- field_name: maintainer
+#  label: Maintainer
+#  form_placeholder: Joe Bloggs
+#  display_property: dc:contributor
+
+#- field_name: maintainer_email
+#  label: Maintainer Email
+#  form_placeholder: joe@example.com
+#  display_property: dc:contributor
+#  display_snippet: email.html
+#  display_email_name_field: maintainer
+
+
+
+resource_fields:
+
+- field_name: url
+  label: URL
+  preset: resource_url_upload
+
+- field_name: name
+  label: Name
+  form_placeholder: eg. January 2011 Gold Prices
+
+- field_name: description
+  label: Description
+  form_snippet: markdown.html
+  form_placeholder: Some useful notes about the data
+
+- field_name: format
+  label: Format
+  preset: resource_format_autocomplete

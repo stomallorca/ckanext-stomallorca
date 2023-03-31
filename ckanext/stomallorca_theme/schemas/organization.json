@@ -1,0 +1,35 @@
+{
+    "scheming_version": 1,
+    "about_url": "http://github.com/ckan/ckanext-scheming",
+    "type": "organization",
+    "organization_type": "organization",
+    "form_languages": ["es", "ca", "en"],
+    "fields": [
+        {
+          "field_name": "title_translated",
+          "label": "Name",
+          "preset": "fluent_core_translated",
+          "form_snippet": "extrafields_fluent_title.html",
+          "classes": ["col-md-12","form-group"],
+          "mark_required": true
+        },
+        {
+          "field_name": "name",
+          "label": "URL",
+          "preset": "dataset_slug",
+          "form_placeholder": "eg. my-organization"
+        },
+        {
+          "field_name": "description_translated",
+          "label": "Description",
+          "preset": "fluent_core_translated",
+          "classes": ["col-md-12","form-group"],
+          "form_snippet": "fluent_markdown.html"
+        },
+        {
+          "field_name": "image_url",
+          "validators": "ignore_missing unicode_safe remove_whitespace",
+          "form_snippet": "organization_upload.html"
+        }
+    ]
+}

@@ -1,0 +1,59 @@
+{#
+Displays a single of dataset.
+
+package        - A package to display.
+item_class     - The class name to use on the list item.
+hide_resources - If true hides the resources (default: false).
+
+Example:
+
+  {% snippet 'snippets/package_item.html', package=c.datasets[0] %}
+
+#}
+
+{% ckan_extends %}
+
+{% block resources_outer %}
+  <ul class="dataset-resources list-unstyled pb-3">
+    {% block resources_inner %}
+      {{ super() }}
+    {% endblock %}
+  </ul>
+{% endblock %}
+
+{% block heading_title %}
+  <a href="{{ h.url_for('%s.read' % package.type, id=package.name) }}">
+    {{ h.get_translated(package, 'title')|truncate(80) }}
+  </a>
+{% endblock %}
+
+{% block content %}
+<div class="container row dataset-content">
+  <div class="col col-xs-12">
+    {% block heading %}
+      {{ super() }}
+    {% endblock %}
+    {% block notes %}
+      {% if notes %}
+        <div>{{ h.markdown_extract(h.get_translated(package, 'notes')|urlize, extract_length=truncate) }}</div>
+      {% else %}
+        <p class="empty">{{ _("This dataset has no description") }}</p>
+      {% endif %}
+    {% endblock %}
+    {% block resources %}
+      {{ super() }}
+    {% endblock %}
+  </div>
+  <div class="col col-xs-12 columnTags">
+    {% block tags %} 
+      <p><b>{{ _('Tags') }}</b></p>
+      {% snippet 'snippets/tag_list.html', tags=package.tags, _class='dataset-resources list-unstyled pb-3' %}
+      {% snippet 'package/snippets/additional_info_detail.html', pkg_dict=package %}
+    {% endblock %}
+  </div>
+</div>
+{% endblock %}
+
+
+
+
