@@ -15,6 +15,6 @@ setup(
     },
     entrypoints='''
         [ckan.plugins]
-        stomallorca_theme=ckanext.stomallorca_theme.plugin:StomallorcaThemePlugin
+        stomallorca=ckanext.stomallorca.plugin:StomallorcaThemePlugin
     '''
 )
