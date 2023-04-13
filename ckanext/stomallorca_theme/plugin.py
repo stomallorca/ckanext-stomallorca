@@ -15,7 +15,7 @@ def default_locale():
     return value
 
 def stomallorca_portal_url():
-    portal_url = config.get('ckanext.stomallorca_theme.portal_url', 'https://dev.stomallorca.com/')
+    portal_url = config.get('ckanext.stomallorca.portal_url', 'https://dev.stomallorca.com/')
     if (h.lang() != 'es'):
       portal_url += h.lang() + '/'
     return portal_url
